@@ -39,6 +39,25 @@ export class UsuarioController {
         res.send(usuario);
     }
 
+   /* @httpPut('/:id/senha')
+    private async atualizarSenha(req: Request, res: Response) {
+        const usuarioAtualizar = Object.assign(new Usuario(), req.body);
+        console.log('Usuario', usuarioAtualizar);
+        console.log('Senha Atual', req.body.senhaAtual);
+        console.log('Senha Nova', req.body.senhaNova);
+        try {
+            const usuario = await this.usuarioService.buscarPorNome(req.body.username);
+            if (usuario) {
+                this.usuarioService.atualizarSenha(usuario, req.body.senhaAtual, req.body.senhaNova);
+
+            } else {
+                res.status(500).json({msg: 'Usuário não encontrado' });
+            }
+        } catch (err) {
+            res.status(500).json({msg: err});
+        }
+    }*/
+
     @httpDelete('/:id')
     private async deletar(req: Request, res: Response) {
         const usuario = await this.usuarioService.deletar(req.params.id);

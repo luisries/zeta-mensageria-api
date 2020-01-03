@@ -49,6 +49,18 @@ export class UsuarioService implements Service<Usuario>{
         return this.usuarioRepository.atualizar(usuario);
     }
 
+/*    async atualizarSenha(usuario: Usuario, senhaAtual: string, senhaNova: string){
+        const resultUser = await bcrypt.compare(req.body.senhaAtual, usuario.password);
+        if (resultUser && req.body.senhaNova) {
+            usuarioAtualizar.password = bcrypt.hashSync(req.body.senhaNova, 10);
+            const usuarioSalvo = await this.usuarioService.atualizar(req.params.id, usuarioAtualizar);
+            res.status(200).send(usuarioSalvo);
+        } else {
+            res.status(500).json({msg: 'Senha atual incorreta' });
+        }
+
+    }*/
+
     async salvar(usuario: Usuario): Promise<Usuario> {
         //Busca o usuário
         const usuarioEncontrado = await this.buscarPorId(usuario.id);
@@ -72,5 +84,10 @@ export class UsuarioService implements Service<Usuario>{
     buscarPorId(id: number): Promise<Usuario> {
         //this.validator.validaId(id);
         return this.usuarioRepository.buscarPorId(id);
+    }
+
+    buscarPorNome(nome: string): Promise<Usuario> {
+        //this.validator.validaId(id);
+        return this.usuarioRepository.buscarPorNome(nome);
     }
 }
