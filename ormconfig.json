@@ -4,7 +4,7 @@
     "port": 5432,
     "username": "postgres",
     "password": "zeta",
-    "database": "zeta_pwa",
+    "database": "zeta_mensageria",
     "synchronize": true,
     "logging": true,
     "entities": [
